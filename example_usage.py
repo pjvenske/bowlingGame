@@ -15,7 +15,7 @@ Note: Students should use these examples to verify their implementation
 is calculating scores correctly after fixing any bugs.
 """
 
-from bowling_game import BowlingGame
+from bowling_game.bowling_game import BowlingGame
 
 
 def print_game_results(game_name, rolls, expected_score, actual_score):

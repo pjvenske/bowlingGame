@@ -6,7 +6,7 @@ Students should expand these tests to cover all functionality and edge cases.
 """
 
 import unittest
-from bowling_game import BowlingGame
+from bowling_game.bowling_game import BowlingGame
 
 
 class TestBowlingGame(unittest.TestCase):
