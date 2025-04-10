@@ -1,4 +1,4 @@
-name: Run Pytest on Push
+name: Run Unittest on Push
 
 on:
   push:
@@ -16,8 +16,5 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
-        run: pip install pytest
-
       - name: Run Unit Tests
-        run: pytest test_factorial.py
+        run: python -m unittest discover -s tests
