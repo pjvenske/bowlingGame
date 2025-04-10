@@ -35,6 +35,12 @@ class TestBowlingGame(unittest.TestCase):
         self.roll_many(21, 5)
         # Expected score: 10 + 5 bonus for each of the 10 frames
         self.assertEqual(150, self.game.score())
+    
+    def test_perfect_game(self):
+        """Test a perfect game (all strikes)."""
+        self.roll_many(12, 10)
+        # Expected score: 300 (10 frames + 2 bonus rolls of 10 each)
+        self.assertEqual(300, self.game.score())
 
 
 if __name__ == "__main__":
