@@ -80,26 +80,27 @@ class TestBowlingGame(unittest.TestCase):
 
     def test_open_mixed_game(self):
         """Test a game with only open frames."""
-        self.game.roll(6)
-        self.game.roll(3)
-        self.game.roll(4)
-        self.game.roll(2)
-        self.game.roll(5)
-        self.game.roll(4)
-        self.game.roll(3)
-        self.game.roll(6)
-        self.game.roll(2)
-        self.game.roll(3)
-        self.game.roll(4)
-        self.game.roll(5)
-        self.game.roll(1)
-        self.game.roll(2)
-        self.game.roll(3)
-        self.game.roll(4)
-        self.game.roll(5)
-        self.game.roll(3)
-        self.game.roll(2)
-        # Expected score: 6 + 3 + 4 + 2 + 5 + 4 + 3 + 6 + 2 + 3 + 4 + 5 + 1 + 2 + 3 + 4 + 5 + 3 + 2 = 70
+        self.game.roll(6)  # 1
+        self.game.roll(3)  # 2
+        self.game.roll(4)  # 3
+        self.game.roll(2)  # 4
+        self.game.roll(5)  # 5
+        self.game.roll(4)  # 6
+        self.game.roll(3)  # 7
+        self.game.roll(6)  # 8
+        self.game.roll(2)  # 9
+        self.game.roll(3)  # 10
+        self.game.roll(4)  # 11
+        self.game.roll(5)  # 12
+        self.game.roll(1)  # 13
+        self.game.roll(2)  # 14
+        self.game.roll(3)  # 15
+        self.game.roll(4)  # 16
+        self.game.roll(5)  # 17
+        self.game.roll(3)  # 18
+        self.game.roll(2)  # 19
+        self.game.roll(3)  # 20
+        # Expected score: 6 + 3 + 4 + 2 + 5 + 4 + 3 + 6 + 2 + 3 + 4 + 5 + 1 + 2 + 3 + 4 + 5 + 3 + 2 + 3 = 70
         self.assertEqual(70, self.game.score())
 
         
