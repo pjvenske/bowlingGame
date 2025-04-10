@@ -40,6 +40,17 @@ class BowlingGame:
                 score += self.rolls[frame_index]
                 frame_index += 2
 
+        # Handle the 10th frame
+        if self._is_strike(frame_index):
+            # Strike in the 10th frame
+            score += 10 + self.rolls[frame_index + 1] + self.rolls[frame_index + 2]
+        elif self._is_spare(frame_index):
+            # Spare in the 10th frame
+            score += 10 + self.rolls[frame_index + 2]
+        else:
+            # Open frame in the 10th frame
+            score += self.rolls[frame_index] + self.rolls[frame_index + 1]
+
         return score
 
     def _is_strike(self, frame_index):
