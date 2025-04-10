@@ -29,6 +29,12 @@ class TestBowlingGame(unittest.TestCase):
         self.roll_many(20, 1)
         # Expected score: 20 (1 pin × 20 rolls)
         self.assertEqual(20, self.game.score())
+    
+    def test_all_spares(self):
+        """Test a game where every frame is a spare."""
+        self.roll_many(21, 5)
+        # Expected score: 10 + 5 bonus for each of the 10 frames
+        self.assertEqual(150, self.game.score())
 
 
 if __name__ == "__main__":

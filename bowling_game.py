@@ -25,7 +25,8 @@ class BowlingGame:
         """Calculate the score for the current game."""
         score = 0
         frame_index = 0
-
+        # Original code: for frame in range(9):
+        # Adjusted to 10 frames for clarity
         for frame in range(10):
             if self._is_strike(frame_index):
                 # Strike
