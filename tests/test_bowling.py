@@ -59,6 +59,15 @@ class TestBowlingGame(unittest.TestCase):
         self.roll_many(16, 0)
         # Expected score: 10 + 3 + 4 + 3 + 4 (strike bonus) = 24
         self.assertEqual(24, self.game.score())
+    
+    def test_spare_tenth_frame(self):
+        """Test a game with a spare in the 10th frame."""
+        self.roll_many(18, 0)
+        self.game.roll(5)   # First roll of 10th frame
+        self.game.roll(5)
+        self.game.roll(3)
+        # Expected score: 5 + 5 + 3 (spare bonus) = 13
+        self.assertEqual(13, self.game.score())
 
 
 if __name__ == "__main__":
