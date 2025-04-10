@@ -45,9 +45,22 @@ class TestBowlingGamePerformance(unittest.TestCase):
 
         self.assertEqual(score, 0)
         print(f"[PERF] 10,000 rolls scored in {duration_ms:.3f} ms")
-
    
-    
+    def test_performance_open_frames(self):
+        """Score a game with 10 open frames quickly."""
+        for _ in range(10):
+            self.game.roll(4)
+            self.game.roll(5)
+
+        start = time.perf_counter()
+        score = self.game.score()
+        end = time.perf_counter()
+        duration_ms = (end - start) * 1000
+
+        self.assertEqual(score, 90)
+        print(f"[PERF] Open game (4+5 x10) scored in {duration_ms:.3f} ms")
+
+  
 
 if __name__ == "__main__":
     unittest.main()
