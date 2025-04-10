@@ -48,7 +48,7 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(5)
         self.game.roll(3)
         self.roll_many(16, 0)
-        # Expected score: 5 + 5 + 3 + 3 (spare bonus)
+        # Expected score: 5 + 5 + 3 (spare bonus) + 3 = 16
         self.assertEqual(16, self.game.score())
 
 

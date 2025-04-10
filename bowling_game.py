@@ -89,7 +89,12 @@ class BowlingGame:
         Returns:
             The value of the roll after the spare
         """
-        return self.rolls[frame_index + 2]
+        if frame_index + 2 < len(self.rolls):
+            return self.rolls[frame_index + 2]
+        return 0
     
     def _sum_of_balls_in_frame(self, frame_index):
+        """Sum the balls in a frame, ensuring no out-of-bounds access."""
+        if frame_index + 1 >= len(self.rolls):
+            return self.rolls[frame_index]  # Only one roll available
         return self.rolls[frame_index] + self.rolls[frame_index + 1]
