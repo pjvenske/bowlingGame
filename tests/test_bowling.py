@@ -50,6 +50,15 @@ class TestBowlingGame(unittest.TestCase):
         self.roll_many(16, 0)
         # Expected score: 5 + 5 + 3 (spare bonus) + 3 = 16
         self.assertEqual(16, self.game.score())
+    
+    def test_one_strike(self):
+        """Test a game with one strike."""
+        self.game.roll(10)
+        self.game.roll(3)
+        self.game.roll(4)
+        self.roll_many(16, 0)
+        # Expected score: 10 + 3 + 4 + 3 + 4 (strike bonus) = 24
+        self.assertEqual(24, self.game.score())
 
 
 if __name__ == "__main__":
