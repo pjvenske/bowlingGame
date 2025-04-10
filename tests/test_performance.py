@@ -32,7 +32,21 @@ class TestBowlingGamePerformance(unittest.TestCase):
 
         self.assertEqual(score, 0)
         print(f"[PERF] All-gutter game scored in {duration_ms:.3f} ms")
+    
+    def test_performance_large_input_noise(self):
+        """Stress test: simulate thousands of extra rolls (e.g., a loop bug or external input attack)."""
+        for _ in range(10000):
+            self.game.roll(0)
 
+        start = time.perf_counter()
+        score = self.game.score()
+        end = time.perf_counter()
+        duration_ms = (end - start) * 1000
+
+        self.assertEqual(score, 0)
+        print(f"[PERF] 10,000 rolls scored in {duration_ms:.3f} ms")
+
+   
     
 
 if __name__ == "__main__":
