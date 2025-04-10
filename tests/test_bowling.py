@@ -69,6 +69,41 @@ class TestBowlingGame(unittest.TestCase):
         # Expected score: 5 + 5 + 3 (spare bonus) = 13
         self.assertEqual(13, self.game.score())
 
+    def test_strike_tenth_frame(self):
+        """Test a game with a strike in the 10th frame."""
+        self.roll_many(18, 0)
+        self.game.roll(10)
+        self.game.roll(3)
+        self.game.roll(4)
+        # Expected score: 10 + 3 + 4 = 17
+        self.assertEqual(17, self.game.score())
+
+    def test_open_mixed_game(self):
+        """Test a game with only open frames."""
+        self.game.roll(6)
+        self.game.roll(3)
+        self.game.roll(4)
+        self.game.roll(2)
+        self.game.roll(5)
+        self.game.roll(4)
+        self.game.roll(3)
+        self.game.roll(6)
+        self.game.roll(2)
+        self.game.roll(3)
+        self.game.roll(4)
+        self.game.roll(5)
+        self.game.roll(1)
+        self.game.roll(2)
+        self.game.roll(3)
+        self.game.roll(4)
+        self.game.roll(5)
+        self.game.roll(3)
+        self.game.roll(2)
+        # Expected score: 6 + 3 + 4 + 2 + 5 + 4 + 3 + 6 + 2 + 3 + 4 + 5 + 1 + 2 + 3 + 4 + 5 + 3 + 2 = 70
+        self.assertEqual(70, self.game.score())
+
+        
+
 
 if __name__ == "__main__":
     unittest.main()
